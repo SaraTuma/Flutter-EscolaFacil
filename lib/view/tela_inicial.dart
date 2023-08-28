@@ -22,8 +22,8 @@ class _TelaInicialState extends State<TelaInicial> {
             width: 280,
             child: ElevatedButton(
               onPressed: () {},
-              child: Text("Entrar", 
-              style: TextStyle(color: Colors.white)),
+              child: Text("Começar",
+                  style: TextStyle(color: Colors.white, fontSize: 17)),
               style: ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(
                       Color.fromRGBO(25, 200, 224, 1))),
