@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_escola_facil/view/tela_detalhes_produto.dart';
 
 import '../models/produto.dart';
 
@@ -41,14 +42,15 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
         appBar: AppBar(
           actions: [
             IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.person,
-                color: Colors.blue,
-              ))
-          ],),
+                onPressed: () {},
+                icon: Icon(
+                  Icons.person,
+                  color: Color.fromRGBO(25, 200, 224, 1),
+                ))
+          ],
+        ),
         drawer: Drawer(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.white,
           child: ListView(
             children: [
               Container(
@@ -57,7 +59,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                   Container(
                     child: const Text("Escola",
                         style: TextStyle(
-                            color: Color.fromRGBO(25, 200, 224, 1),
+                            color: Color.fromRGBO(25, 95, 224, 1),
                             fontWeight: FontWeight.w700,
                             fontSize: 20)),
                   ),
@@ -68,41 +70,75 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                           fontSize: 20)),
                 ]),
               ),
-              ListTile(
-                title: Text(
-                  "Perfil",
-                  style: const TextStyle(
-                      fontSize: 17,
-                      color: Color.fromRGBO(25, 200, 224, 1),
-                      fontWeight: FontWeight.bold),
-                ),
-                onTap: () {},
-              ),
               Divider(
                 height: 20.0,
-                color: Colors.white,
+                color: Colors.grey,
               ),
               ListTile(
                 title: Text(
                   "Tela Principal",
                   style: TextStyle(
                       fontSize: 17,
-                      color: Color.fromRGBO(25, 200, 224, 1),
+                      color: Color.fromRGBO(25, 95, 224, 1),
                       fontWeight: FontWeight.bold),
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                   Navigator.of(context).pushNamed('/principal');
                 },
               ),
               ListTile(
-                title: Text(
-                  "subjects",
-                  style: const TextStyle(
+                title: const Text(
+                  "Adicionar produto",
+                  style: TextStyle(
                       fontSize: 17,
-                      color: Color.fromRGBO(25, 200, 224, 1),
+                      color: Color.fromRGBO(25, 95, 224, 1),
                       fontWeight: FontWeight.bold),
                 ),
                 onTap: () {},
+              ),
+              ListTile(
+                title: const Text(
+                  "Carrinho",
+                  style: TextStyle(
+                      fontSize: 17,
+                      color: Color.fromRGBO(25, 95, 224, 1),
+                      fontWeight: FontWeight.bold),
+                ),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/carrinho');
+                },
+              ),
+              ListTile(
+                title: const Text(
+                  "Perfil",
+                  style: TextStyle(
+                      fontSize: 17,
+                      color: Color.fromRGBO(25, 95, 224, 1),
+                      fontWeight: FontWeight.bold),
+                ),
+                onTap: () {},
+              ),
+              ListTile(
+                title: const Text(
+                  "Idioma",
+                  style: TextStyle(
+                      fontSize: 17,
+                      color: Color.fromRGBO(25, 95, 224, 1),
+                      fontWeight: FontWeight.bold),
+                ),
+                onTap: () {},
+              ),
+              ListTile(
+                title: const Text(
+                  "Sair",
+                  style: TextStyle(
+                      fontSize: 17,
+                      color: Color.fromRGBO(25, 95, 224, 1),
+                      fontWeight: FontWeight.bold),
+                ),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/login');
+                },
               ),
             ],
           ),
@@ -133,8 +169,8 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                   child: Text("Papelaria",
                       style: TextStyle(color: Colors.white, fontSize: 17)),
                   style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(
-                          Colors.black12)),
+                      backgroundColor:
+                          MaterialStatePropertyAll(Colors.black12)),
                 ),
                 ElevatedButton(
                   onPressed: () {},
@@ -160,16 +196,15 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                 Container(
                   width: 150,
                   child: Text(
-                  '10 Produtos encontrados.',
-                  style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 10,
-                      fontWeight: FontWeight.normal),
-                ),
+                    '10 Produtos encontrados.',
+                    style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 10,
+                        fontWeight: FontWeight.normal),
+                  ),
                 ),
               ],
             ),
-            
             Expanded(
                 child: ListView.builder(
               itemCount: produtos.length,
@@ -214,10 +249,9 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                             Text(
                               "10.000 KZ / AOA",
                               style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.green,
-                                fontWeight: FontWeight.bold
-                              ),
+                                  fontSize: 15,
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold),
                             ),
                             // Add a row with two buttons spaced apart and aligned to the right side of the card
                             Row(
@@ -233,7 +267,9 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                                     "VER",
                                     style: TextStyle(color: Colors.blue),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).pushNamed('/produto');
+                                  },
                                 ),
                                 // Add a text button labeled "EXPLORE" with transparent foreground color and an accent color for the text
                                 TextButton(

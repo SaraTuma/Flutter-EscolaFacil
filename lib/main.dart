@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_escola_facil/view/tela_add_usuario.dart';
+import 'package:flutter_escola_facil/view/tela_carrinho.dart';
 import 'package:flutter_escola_facil/view/tela_detalhes_produto.dart';
 import 'package:flutter_escola_facil/view/tela_inicial.dart';
+import 'package:flutter_escola_facil/view/tela_login.dart';
 import 'package:flutter_escola_facil/view/tela_principal.dart';
+import 'package:flutter_escola_facil/view/tela_redefinir_senha.dart';
 import 'package:flutter_escola_facil/view/tela_splash.dart';
 
 void main() {
@@ -21,7 +25,18 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: TelaPrincipal(),
+      //home: TelaPrincipal(),
+      initialRoute: '/inicial',
+      routes: {
+        '/': (context) => const TelaSplash(),
+        '/inicial': (context) => const TelaInicial(),
+        '/login': (context) => const TelaLogin(),
+        '/principal': (context) => const TelaPrincipal(),
+        '/produto': (context) => const TelaDetalhesProduto(),
+        '/addUsuario': (context) =>  TelaAdicionarUsuario(),
+        '/redSenha': (context) => const TelaRedefinirSenha(),
+        '/carrinho': (context) => const TelaCarrinho(),
+      },
     );
   }
 }

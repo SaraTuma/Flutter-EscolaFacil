@@ -18,10 +18,11 @@ class _TelaSplashState extends State<TelaSplash> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/images/logo.png",),
+              "assets/images/logo.png"),
             SizedBox(height: 10),
             CircularProgressIndicator(
               color: Colors.lightGreen,
+              value: 12,
             )
           ],
         )));

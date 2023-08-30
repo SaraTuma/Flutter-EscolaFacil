@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_escola_facil/view/tela_principal.dart';
 
 class TelaInicial extends StatefulWidget {
   const TelaInicial({super.key});
@@ -8,6 +9,8 @@ class TelaInicial extends StatefulWidget {
 }
 
 class _TelaInicialState extends State<TelaInicial> {
+
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +24,9 @@ class _TelaInicialState extends State<TelaInicial> {
             height: 55,
             width: 280,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/login');
+              },
               child: Text("Começar",
                   style: TextStyle(color: Colors.white, fontSize: 17)),
               style: ButtonStyle(
