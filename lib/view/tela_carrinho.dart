@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_escola_facil/view/tela_detalhes_produto.dart';
 
 import '../models/produto.dart';
 

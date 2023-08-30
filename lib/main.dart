@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      //home: TelaPrincipal(),
       initialRoute: '/inicial',
       routes: {
         '/': (context) => const TelaSplash(),
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const TelaLogin(),
         '/principal': (context) => const TelaPrincipal(),
         '/produto': (context) => const TelaDetalhesProduto(),
-        '/addUsuario': (context) =>  TelaAdicionarUsuario(),
+        '/addUsuario': (context) => const TelaAdicionarUsuario(),
         '/redSenha': (context) => const TelaRedefinirSenha(),
         '/carrinho': (context) => const TelaCarrinho(),
       },

@@ -136,7 +136,8 @@ class _TelaRedefinirSenhaState extends State<TelaRedefinirSenha> {
                             if (_formKey.currentState!.validate()) {
                               final repSenha = _repSenhaController.text;
                               final senha = _senhaController.text;
-                              print('CLicou');
+                              print(repSenha);
+                              print(senha);
                             }
                           },
                           child: Text(

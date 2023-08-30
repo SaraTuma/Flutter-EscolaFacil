@@ -163,8 +163,8 @@ class _TelaAdicionarUsuarioState extends State<TelaAdicionarUsuario> {
                             if (_formKey.currentState!.validate()) {
                               final email = _emailController.text;
                               final senha = _senhaController.text;
-                              print('email');
-                              print('senha');
+                              print(email);
+                              print(senha);
                               Navigator.of(context).pushNamed('/principal');
                             }
                           },

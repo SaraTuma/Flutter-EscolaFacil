@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_escola_facil/view/tela_principal.dart';
 
 class TelaInicial extends StatefulWidget {
   const TelaInicial({super.key});
