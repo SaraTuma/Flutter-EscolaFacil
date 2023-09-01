@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_escola_facil/view/widgets/opcao_drawer.dart';
 
 import '../models/produto.dart';
 
@@ -48,98 +49,7 @@ class _TelaCarrinhoState extends State<TelaCarrinho> {
                 ))
           ],
         ),
-        drawer: Drawer(
-          backgroundColor: Colors.white,
-          child: ListView(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(bottom: 8.0, top: 20, left: 10.0),
-                child: Row(children: [
-                  Container(
-                    child: const Text("Escola",
-                        style: TextStyle(
-                            color: Color.fromRGBO(25, 95, 224, 1),
-                            fontWeight: FontWeight.w700,
-                            fontSize: 20)),
-                  ),
-                  const Text("Fácil",
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 20)),
-                ]),
-              ),
-              Divider(
-                height: 20.0,
-                color: Colors.grey,
-              ),
-              ListTile(
-                title: Text(
-                  "Tela Principal",
-                  style: TextStyle(
-                      fontSize: 17,
-                      color: Color.fromRGBO(25, 95, 224, 1),
-                      fontWeight: FontWeight.bold),
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text(
-                  "Adicionar produto",
-                  style: TextStyle(
-                      fontSize: 17,
-                      color: Color.fromRGBO(25, 95, 224, 1),
-                      fontWeight: FontWeight.bold),
-                ),
-                onTap: () {},
-              ),
-              ListTile(
-                title: const Text(
-                  "Carrinho",
-                  style: TextStyle(
-                      fontSize: 17,
-                      color: Color.fromRGBO(25, 95, 224, 1),
-                      fontWeight: FontWeight.bold),
-                ),
-                onTap: () {},
-              ),
-              ListTile(
-                title: const Text(
-                  "Perfil",
-                  style: TextStyle(
-                      fontSize: 17,
-                      color: Color.fromRGBO(25, 95, 224, 1),
-                      fontWeight: FontWeight.bold),
-                ),
-                onTap: () {},
-              ),
-              ListTile(
-                title: const Text(
-                  "Idioma",
-                  style: TextStyle(
-                      fontSize: 17,
-                      color: Color.fromRGBO(25, 95, 224, 1),
-                      fontWeight: FontWeight.bold),
-                ),
-                onTap: () {},
-              ),
-              ListTile(
-                title: const Text(
-                  "Sair",
-                  style: TextStyle(
-                      fontSize: 17,
-                      color: Color.fromRGBO(25, 95, 224, 1),
-                      fontWeight: FontWeight.bold),
-                ),
-                onTap: () {
-                  Navigator.of(context).pushNamed('/login');
-                },
-              ),
-            ],
-          ),
-        ),
+        drawer: AppDrawer(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             print('Clicou em Encomendar');

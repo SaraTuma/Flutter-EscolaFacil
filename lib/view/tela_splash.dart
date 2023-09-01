@@ -8,21 +8,25 @@ class TelaSplash extends StatefulWidget {
 }
 
 class _TelaSplashState extends State<TelaSplash> {
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration(seconds: 5))
+        .then((_) => Navigator.of(context).pushReplacementNamed("/inicial"));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
         color: Colors.white,
         child: Center(
             child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              "assets/images/logo.png"),
-            SizedBox(height: 10),
+            Image.asset("assets/images/logo.png"),
             CircularProgressIndicator(
-              color: Colors.lightGreen,
-              value: 12,
+              color: Color.fromRGBO(25, 95, 224, 1)
             )
           ],
         )));
