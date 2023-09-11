@@ -25,9 +25,7 @@ class _TelaSplashState extends State<TelaSplash> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset("assets/images/logo.png"),
-            CircularProgressIndicator(
-              color: Color.fromRGBO(25, 95, 224, 1)
-            )
+            CircularProgressIndicator(color: Color.fromRGBO(25, 95, 224, 1))
           ],
         )));
   }

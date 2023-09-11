@@ -17,7 +17,7 @@ class AppDrawer extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             currentAccountPicture: CircleAvatar(
-              child: Text("ST"),
+              child: Text("S"),
             ),
           ),
           ListTile(
