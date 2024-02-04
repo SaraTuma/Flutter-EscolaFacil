@@ -192,6 +192,8 @@ class _TelaAdicionarUsuarioState extends State<TelaAdicionarUsuario> {
                                 if (user.password != _repSenhaController.text) {
                                   return;
                                 }
+                                
+                                user.type = 'cliente';
                                 await context
                                     .read<UserRepository>()
                                     .createNewUser(
@@ -201,10 +203,9 @@ class _TelaAdicionarUsuarioState extends State<TelaAdicionarUsuario> {
                                           debugPrint(e);
                                         },
                                         onSucess: () {
-                                          // TODO: FECHAR TELA DE LOGIN
                                           setState(() {
-                                              loading = false;
-                                            });
+                                            loading = false;
+                                          });
                                           debugPrint('Criado com Sucesso!');
                                           Navigator.of(context).pop();
                                         });

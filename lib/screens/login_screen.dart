@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_escola_facil/helpers/validators.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../helpers/app_errors.dart';
 import '../models/user_model.dart';
 import '../repository/user_repository.dart';
 
@@ -161,33 +163,29 @@ class _TelaLoginState extends State<TelaLogin> {
                                             debugPrint(e);
                                           },
                                           onSucess: () {
-                                            // TODO: FECHAR TELA DE LOGIN
                                             debugPrint('Sucesso!');
                                             setState(() {
                                               loading = false;
                                             });
-                                            //ON ERROR
+                                            Navigator.of(context)
+                                                .pushNamed('/principal');
                                           });
 
                                   if (user == null) {
                                     debugPrint("ERRO: O Usuario não existe!");
-                                    
-                                  } else {
-                                    debugPrint(user.toString());
-                                    Navigator.of(context)
-                                        .pushNamed('/principal');
                                   }
                                 }
                               },
-                              
-                              child: !loading ? CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation(Colors.white),
-                              ) :  const Text(
-                                "Entrar",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20.0),
-                              ),
-                              
+                              child: !loading
+                                  ? CircularProgressIndicator(
+                                      valueColor:
+                                          AlwaysStoppedAnimation(Colors.white),
+                                    )
+                                  : const Text(
+                                      "Entrar",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 20.0),
+                                    ),
                             ),
                           ),
                           Row(
@@ -206,7 +204,6 @@ class _TelaLoginState extends State<TelaLogin> {
                                   Navigator.of(context)
                                       .pushNamed('/addUsuario');
                                 },
-                                
                                 child: Text(
                                   'Cria uma conta.',
                                   style: const TextStyle(

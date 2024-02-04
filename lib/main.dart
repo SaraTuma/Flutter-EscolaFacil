@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_escola_facil/repository/product_repository.dart';
 import 'package:flutter_escola_facil/repository/user_repository.dart';
-import 'package:flutter_escola_facil/screens/tela_cadastro.dart';
-import 'package:flutter_escola_facil/screens/tela_carrinho.dart';
-import 'package:flutter_escola_facil/screens/tela_detalhes_produto.dart';
-import 'package:flutter_escola_facil/screens/tela_encomendas.dart';
-import 'package:flutter_escola_facil/screens/tela_inicial.dart';
-import 'package:flutter_escola_facil/screens/tela_login.dart';
-import 'package:flutter_escola_facil/screens/tela_principal.dart';
-import 'package:flutter_escola_facil/screens/tela_redefinir_senha.dart';
-import 'package:flutter_escola_facil/screens/tela_splash.dart';
+import 'package:flutter_escola_facil/screens/signup_screen.dart';
+import 'package:flutter_escola_facil/screens/chart_screen.dart';
+import 'package:flutter_escola_facil/screens/detail_product_screen.dart';
+import 'package:flutter_escola_facil/screens/encomenda_screen.dart';
+import 'package:flutter_escola_facil/screens/initial_screen.dart';
+import 'package:flutter_escola_facil/screens/login_screen.dart';
+import 'package:flutter_escola_facil/screens/main_screen.dart';
+import 'package:flutter_escola_facil/screens/products/product_screen.dart';
+import 'package:flutter_escola_facil/screens/red_password_screen.dart';
+import 'package:flutter_escola_facil/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'authentication/login.dart';
@@ -33,15 +35,15 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        
-        initialRoute: '/',
+        initialRoute: '/principal',
         routes: {
-          '/': (context) => const TelaSplash(),
+          //'/': (context) => const TelaSplash(),
           //'/': (context) => const LoginScreen(),
           '/inicial': (context) => const TelaInicial(),
           '/login': (context) => const TelaLogin(),
           '/principal': (context) => const TelaPrincipal(),
-          '/produto': (context) => const TelaDetalhesProduto(),
+          '/product': (context) => const ProductScreen(),
+          '/detProduto': (context) => const TelaDetalhesProduto(),
           '/addUsuario': (context) => const TelaAdicionarUsuario(),
           '/redSenha': (context) => const TelaRedefinirSenha(),
           '/carrinho': (context) => const TelaCarrinho(),

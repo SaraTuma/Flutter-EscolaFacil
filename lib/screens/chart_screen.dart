@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 import '../common/custom_drawer/custom_drawer.dart';
-import '../models/produto.dart';
+import '../models/product.dart';
 
-class TelaEncomendas extends StatefulWidget {
-  const TelaEncomendas({super.key});
+class TelaCarrinho extends StatefulWidget {
+  const TelaCarrinho({super.key});
 
   @override
-  State<TelaEncomendas> createState() => _TelaEncomendasState();
+  State<TelaCarrinho> createState() => _TelaCarrinhoState();
 }
 
-class _TelaEncomendasState extends State<TelaEncomendas> {
-  List<ProdutoModel> produtos = [
-    ProdutoModel(
-        imagem: "assets/images/logo.png",
-        descricao:
+class _TelaCarrinhoState extends State<TelaCarrinho> {
+  List<ProductModel> produtos = [
+    ProductModel(
+        image: "assets/images/logo.png",
+        description:
             'Lorem ipson lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll',
-        nome: 'Papel',
-        preco: 12000.00,
-        quantidade: 12),
-    ProdutoModel(
-        imagem: "assets/images/logo.png",
-        descricao:
+        name: 'Papel',
+        price: 12000.00,
+        quantity: 12),
+    ProductModel(
+        image: "assets/images/logo.png",
+        description:
             'Lorem ipson lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll',
-        nome: 'Papel',
-        preco: 12000.00,
-        quantidade: 12),
-    ProdutoModel(
-        imagem: "assets/images/logo.png",
-        descricao:
+        name: 'Papel',
+        price: 12000.00,
+        quantity: 12),
+    ProductModel(
+        image: "assets/images/logo.png",
+        description:
             'Lorem ipson lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll',
-        nome: 'Papel',
-        preco: 12000.00,
-        quantidade: 12),
+        name: 'Papel',
+        price: 12000.00,
+        quantity: 12),
   ];
 
   @override
@@ -39,14 +39,6 @@ class _TelaEncomendasState extends State<TelaEncomendas> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Encomendas',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Color.fromRGBO(25, 200, 224, 1),
-            ),
-          ),
           actions: [
             IconButton(
                 onPressed: () {},
@@ -56,21 +48,39 @@ class _TelaEncomendasState extends State<TelaEncomendas> {
                 ))
           ],
         ),
-        drawer: const CustomDrawer(page: 3,),
+        drawer: CustomDrawer(page: 2),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            print('Clicou em Encomendar');
+          },
+          tooltip: 'Fazer encomenda',
+          backgroundColor: const Color.fromRGBO(25, 200, 224, 1),
+          child: const Icon(Icons.car_crash, color: Colors.white),
+        ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Container(
+                margin: EdgeInsets.only(left: 10),
+                child: const Text(
+                  'Produtos do carrinho',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(25, 200, 224, 1),
+                  ),
+                )),
             Row(
               children: [
                 const Spacer(),
                 Container(
                   width: 150,
                   child: Text(
-                    '10 encomendas no total',
+                    '10 Produtos encontrados.',
                     style: TextStyle(
                         color: Color.fromRGBO(25, 95, 224, 1),
                         fontSize: 10,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.normal),
                   ),
                 ),
               ],
@@ -85,24 +95,26 @@ class _TelaEncomendasState extends State<TelaEncomendas> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       ListTile(
-                          title: Container(
-                            margin: EdgeInsets.only(bottom: 10),
-                            child: Text(
-                              "Conjunto de Lápis",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.grey[800],
-                                  fontWeight: FontWeight.bold),
-                            ),
+                          leading: Image.asset(
+                            "assets/images/Papelaria-1.png",
+                            width: 70,
+                            fit: BoxFit.fill,
+                          ),
+                          title: Text(
+                            "Conjunto de Lápis",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.grey[800],
+                                fontWeight: FontWeight.bold),
                           ),
                           subtitle: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Preço total ',
+                                'Qtd : 2',
                                 style: TextStyle(
                                     fontSize: 15,
-                                    color: Colors.green,
+                                    color: Color.fromRGBO(25, 95, 224, 1),
                                     fontWeight: FontWeight.bold),
                               ), //
                               Text(
@@ -119,9 +131,17 @@ class _TelaEncomendasState extends State<TelaEncomendas> {
                         children: <Widget>[
                           TextButton(
                             child: const Text(
-                              'Visualizar',
+                              'Editar',
                               style: TextStyle(
                                   color: Color.fromRGBO(25, 95, 224, 1)),
+                            ),
+                            onPressed: () {/* ... */},
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(
+                            child: const Text(
+                              'Eliminar',
+                              style: TextStyle(color: Colors.red),
                             ),
                             onPressed: () {/* ... */},
                           ),

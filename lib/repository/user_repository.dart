@@ -6,15 +6,28 @@ import '../models/user_model.dart';
 
 class UserRepository {
   UserRepository() {
+    initUsers();
     _loadCurrentUser();
   }
 
-  late final UserModel userModel;
+  late UserModel userModel;
   UserModel? currentUser;
   late List<UserModel> listUsers;
 
   void _loadCurrentUser() {
+    if (currentUser != null) {
+      currentUser = findUserById(currentUser!.id);
+    }
     debugPrint("Usuario logado - $currentUser");
+  }
+
+  UserModel? findUserById(int? id) {
+    for (var element in listUsers) {
+      if (element.id == id) {
+        return element;
+      }
+    }
+    return null;
   }
 
   Future<void> initUsers() async {
@@ -88,7 +101,8 @@ class UserRepository {
       required Function onSucess}) async {
     try {
       if (!verifEmailPassword(user.email, user.password)) {
-        user.id = 4;
+        //pegar o usuario na base de dados
+
         onSucess();
         Future.delayed(
           const Duration(seconds: 4),
@@ -101,5 +115,10 @@ class UserRepository {
       onFail(getErrorString(e.code));
       return null;
     }
+  }
+
+  void logOut() {
+    //Dizer que já não existe um usuario logado
+    currentUser = null;
   }
 }

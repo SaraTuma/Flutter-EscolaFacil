@@ -1,7 +1,7 @@
 //create a user json model
 
 class UserModel {
-  late final int? id;
+  late int? id=0;
   String email;
   String name;
   String password;

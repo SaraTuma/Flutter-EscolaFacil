@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'custom_drawer_header.dart';
 import 'drawer_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -9,17 +10,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(children: const [
-        UserAccountsDrawerHeader(
-          decoration: BoxDecoration(color: Color.fromRGBO(25, 200, 224, 1)),
-          accountEmail: Text("user@mail.com"),
-          accountName: Text(
-            "Sara Tuma",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          currentAccountPicture: CircleAvatar(
-            child: Text("S"),
-          ),
-        ),
+        CustomDrawerHeader(),
         DrawerTile(
           iconData: Icons.home,
           title: "Inicio",
@@ -27,9 +18,9 @@ class CustomDrawer extends StatelessWidget {
           color: Color.fromARGB(219, 32, 32, 32),
         ),
         DrawerTile(
-            iconData: Icons.add_card,
-            title: "Adicionar produto",
-            route: "/principal",
+            iconData: Icons.list,
+            title: "Produtos",
+            route: "/product",
             color: Color.fromARGB(219, 32, 32, 32)),
         DrawerTile(
             iconData: Icons.shopping_cart,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../common/custom_drawer/custom_drawer.dart';
-import '../models/produto.dart';
+import '../models/product.dart';
 
 class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({super.key});
@@ -10,28 +10,28 @@ class TelaPrincipal extends StatefulWidget {
 }
 
 class _TelaPrincipalState extends State<TelaPrincipal> {
-  List<ProdutoModel> produtos = [
-    ProdutoModel(
-        imagem: "assets/images/logo.png",
-        descricao:
+  List<ProductModel> produtos = [
+    ProductModel(
+        image: "assets/images/logo.png",
+        description:
             'Lorem ipson lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll',
-        nome: 'Papel',
-        preco: 12000.00,
-        quantidade: 12),
-    ProdutoModel(
-        imagem: "assets/images/logo.png",
-        descricao:
+        name: 'Papel',
+        price: 12000.00,
+        quantity: 12),
+    ProductModel(
+        image: "assets/images/logo.png",
+        description:
             'Lorem ipson lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll',
-        nome: 'Papel',
-        preco: 12000.00,
-        quantidade: 12),
-    ProdutoModel(
-        imagem: "assets/images/logo.png",
-        descricao:
+        name: 'Papel',
+        price: 12000.00,
+        quantity: 12),
+    ProductModel(
+        image: "assets/images/logo.png",
+        description:
             'Lorem ipson lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll',
-        nome: 'Papel',
-        preco: 12000.00,
-        quantidade: 12),
+        name: 'Papel',
+        price: 12000.00,
+        quantity: 12),
   ];
 
   @override
@@ -43,11 +43,12 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
             IconButton(
                 onPressed: () {},
                 icon: Icon(
-                  Icons.person,
+                  Icons.search,
                   color: Color.fromRGBO(25, 200, 224, 1),
                 ))
           ],
         ),
+        
         drawer: const CustomDrawer(page: 1),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -174,7 +175,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                                     style: TextStyle(color: Colors.blue),
                                   ),
                                   onPressed: () {
-                                    Navigator.of(context).pushNamed('/produto');
+                                    Navigator.of(context).pushNamed('/detProduto');
                                   },
                                 ),
                                 // Add a text button labeled "EXPLORE" with transparent foreground color and an accent color for the text

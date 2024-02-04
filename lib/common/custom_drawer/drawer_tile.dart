@@ -5,7 +5,8 @@ class DrawerTile extends StatelessWidget {
       {super.key,
       required this.iconData,
       required this.title,
-      required this.route, required this.color});
+      required this.route,
+      required this.color});
 
   final IconData iconData;
   final String title;
@@ -20,7 +21,7 @@ class DrawerTile extends StatelessWidget {
         title,
         style: TextStyle(
             fontSize: 17,
-            color: Color.fromARGB(219, 32, 32, 32),
+            color: color,
             fontWeight: FontWeight.bold),
       ),
       onTap: () {
