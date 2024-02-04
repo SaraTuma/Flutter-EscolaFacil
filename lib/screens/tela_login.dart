@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_escola_facil/helpers/validators.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../models/user_model.dart';
+import '../repository/user_repository.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({super.key});
@@ -11,12 +16,15 @@ class _TelaLoginState extends State<TelaLogin> {
   late TextEditingController _emailController;
   late TextEditingController _senhaController;
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
+  late bool loading;
 
   @override
   void initState() {
     _emailController = TextEditingController();
     _senhaController = TextEditingController();
+    loading = true;
     super.initState();
   }
 
@@ -31,6 +39,7 @@ class _TelaLoginState extends State<TelaLogin> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(
@@ -48,7 +57,7 @@ class _TelaLoginState extends State<TelaLogin> {
             padding: const EdgeInsets.all(25),
             child: Form(
                 key: _formKey,
-                child: Container(
+                child: SizedBox(
                   height: 500,
                   child: SingleChildScrollView(
                     child: Column(
@@ -82,6 +91,8 @@ class _TelaLoginState extends State<TelaLogin> {
                           ),
                           TextFormField(
                             controller: _emailController,
+                            autocorrect: false,
+                            enabled: loading,
                             keyboardType: TextInputType.emailAddress,
                             onChanged: (text) {},
                             decoration: const InputDecoration(
@@ -89,8 +100,8 @@ class _TelaLoginState extends State<TelaLogin> {
                                 labelText: 'Digite o e-mail',
                                 border: OutlineInputBorder()),
                             validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Erro: E-Mail invalido!';
+                              if (!emailValid(value!)) {
+                                return 'E-mail inválido!';
                               }
                               return null;
                             },
@@ -100,13 +111,15 @@ class _TelaLoginState extends State<TelaLogin> {
                           ),
                           TextFormField(
                             obscureText: true,
+                            autocorrect: false,
+                            enabled: loading,
                             controller: _senhaController,
                             decoration: InputDecoration(
                                 labelText: 'Digite a senha',
                                 border: OutlineInputBorder()),
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'Erro: Senha invalida';
+                                return 'Senha inválida';
                               }
                               return null;
                             },
@@ -128,7 +141,7 @@ class _TelaLoginState extends State<TelaLogin> {
                                 ),
                               )),
                           Container(
-                            padding: const EdgeInsets.only(top: 5, bottom: 5),
+                            padding: const EdgeInsets.only(top: 8, bottom: 8),
                             width: double.infinity,
                             child: ElevatedButton(
                               style: ButtonStyle(
@@ -136,20 +149,45 @@ class _TelaLoginState extends State<TelaLogin> {
                                       MaterialStateColor.resolveWith((states) =>
                                           const Color.fromRGBO(
                                               25, 200, 224, 1))),
-                              onPressed: () {
+                              onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
-                                  final email = _emailController.text;
-                                  final senha = _senhaController.text;
-                                  print(email);
-                                  print(senha);
-                                  Navigator.of(context).pushNamed('/principal');
+                                  UserModel? user = await context
+                                      .read<UserRepository>()
+                                      .fazerLogin(
+                                          password: _senhaController.text,
+                                          email: _emailController.text.trim(),
+                                          onFail: (e) {
+                                            //mostrar uma SnackBar
+                                            debugPrint(e);
+                                          },
+                                          onSucess: () {
+                                            // TODO: FECHAR TELA DE LOGIN
+                                            debugPrint('Sucesso!');
+                                            setState(() {
+                                              loading = false;
+                                            });
+                                            //ON ERROR
+                                          });
+
+                                  if (user == null) {
+                                    debugPrint("ERRO: O Usuario não existe!");
+                                    
+                                  } else {
+                                    debugPrint(user.toString());
+                                    Navigator.of(context)
+                                        .pushNamed('/principal');
+                                  }
                                 }
                               },
-                              child: Text(
+                              
+                              child: !loading ? CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation(Colors.white),
+                              ) :  const Text(
                                 "Entrar",
-                                style: const TextStyle(
+                                style: TextStyle(
                                     color: Colors.white, fontSize: 20.0),
                               ),
+                              
                             ),
                           ),
                           Row(
@@ -168,6 +206,7 @@ class _TelaLoginState extends State<TelaLogin> {
                                   Navigator.of(context)
                                       .pushNamed('/addUsuario');
                                 },
+                                
                                 child: Text(
                                   'Cria uma conta.',
                                   style: const TextStyle(

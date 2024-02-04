@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../repository/user_repository.dart';
 
 class TelaSplash extends StatefulWidget {
   const TelaSplash({super.key});
@@ -8,10 +11,15 @@ class TelaSplash extends StatefulWidget {
 }
 
 class _TelaSplashState extends State<TelaSplash> {
+  @override
   void initState() {
     super.initState();
+    initValuesNow();
+  }
 
-    Future.delayed(Duration(seconds: 5))
+  Future<void> initValuesNow() async {
+    await context.read<UserRepository>().initUsers();
+    Future.delayed(const Duration(seconds: 2))
         .then((_) => Navigator.of(context).pushReplacementNamed("/inicial"));
   }
 

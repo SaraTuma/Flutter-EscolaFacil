@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_escola_facil/view/widgets/opcao_drawer.dart';
-
+import '../common/custom_drawer/custom_drawer.dart';
 import '../models/produto.dart';
 
 class TelaPrincipal extends StatefulWidget {
@@ -49,7 +48,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                 ))
           ],
         ),
-        drawer: AppDrawer(),
+        drawer: const CustomDrawer(page: 1),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             print('Clicou em Adicionar produto');

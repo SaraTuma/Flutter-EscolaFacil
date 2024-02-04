@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_escola_facil/view/widgets/opcao_drawer.dart';
-
+import '../common/custom_drawer/custom_drawer.dart';
 import '../models/produto.dart';
 
-class TelaCarrinho extends StatefulWidget {
-  const TelaCarrinho({super.key});
+class TelaEncomendas extends StatefulWidget {
+  const TelaEncomendas({super.key});
 
   @override
-  State<TelaCarrinho> createState() => _TelaCarrinhoState();
+  State<TelaEncomendas> createState() => _TelaEncomendasState();
 }
 
-class _TelaCarrinhoState extends State<TelaCarrinho> {
+class _TelaEncomendasState extends State<TelaEncomendas> {
   List<ProdutoModel> produtos = [
     ProdutoModel(
         imagem: "assets/images/logo.png",
@@ -40,6 +39,14 @@ class _TelaCarrinhoState extends State<TelaCarrinho> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          title: const Text(
+            'Encomendas',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Color.fromRGBO(25, 200, 224, 1),
+            ),
+          ),
           actions: [
             IconButton(
                 onPressed: () {},
@@ -49,39 +56,21 @@ class _TelaCarrinhoState extends State<TelaCarrinho> {
                 ))
           ],
         ),
-        drawer: AppDrawer(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print('Clicou em Encomendar');
-          },
-          tooltip: 'Fazer encomenda',
-          backgroundColor: const Color.fromRGBO(25, 200, 224, 1),
-          child: const Icon(Icons.car_crash, color: Colors.white),
-        ),
+        drawer: const CustomDrawer(page: 3,),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-                margin: EdgeInsets.only(left: 10),
-                child: const Text(
-                  'Produtos do carrinho',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(25, 200, 224, 1),
-                  ),
-                )),
             Row(
               children: [
                 const Spacer(),
                 Container(
                   width: 150,
                   child: Text(
-                    '10 Produtos encontrados.',
+                    '10 encomendas no total',
                     style: TextStyle(
                         color: Color.fromRGBO(25, 95, 224, 1),
                         fontSize: 10,
-                        fontWeight: FontWeight.normal),
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -96,26 +85,24 @@ class _TelaCarrinhoState extends State<TelaCarrinho> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       ListTile(
-                          leading: Image.asset(
-                            "assets/images/Papelaria-1.png",
-                            width: 70,
-                            fit: BoxFit.fill,
-                          ),
-                          title: Text(
-                            "Conjunto de Lápis",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.grey[800],
-                                fontWeight: FontWeight.bold),
+                          title: Container(
+                            margin: EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              "Conjunto de Lápis",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.grey[800],
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                           subtitle: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Qtd : 2',
+                                'Preço total ',
                                 style: TextStyle(
                                     fontSize: 15,
-                                    color: Color.fromRGBO(25, 95, 224, 1),
+                                    color: Colors.green,
                                     fontWeight: FontWeight.bold),
                               ), //
                               Text(
@@ -132,17 +119,9 @@ class _TelaCarrinhoState extends State<TelaCarrinho> {
                         children: <Widget>[
                           TextButton(
                             child: const Text(
-                              'Editar',
+                              'Visualizar',
                               style: TextStyle(
                                   color: Color.fromRGBO(25, 95, 224, 1)),
-                            ),
-                            onPressed: () {/* ... */},
-                          ),
-                          const SizedBox(width: 8),
-                          TextButton(
-                            child: const Text(
-                              'Eliminar',
-                              style: TextStyle(color: Colors.red),
                             ),
                             onPressed: () {/* ... */},
                           ),
