@@ -42,7 +42,7 @@ class _TelaCarrinhoState extends State<TelaCarrinho> {
           actions: [
             IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.find_replace,
                   color: Color.fromRGBO(25, 200, 224, 1),
                 ))
@@ -61,7 +61,7 @@ class _TelaCarrinhoState extends State<TelaCarrinho> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-                margin: EdgeInsets.only(left: 10),
+                margin: const EdgeInsets.only(left: 10),
                 child: const Text(
                   'Produtos do carrinho',
                   style: TextStyle(

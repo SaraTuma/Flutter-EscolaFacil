@@ -29,7 +29,7 @@ class CustomDrawerHeader extends StatelessWidget {
             'Olá, ${user?.name ?? ''}',
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           GestureDetector(
             onTap: () {
@@ -42,8 +42,8 @@ class CustomDrawerHeader extends StatelessWidget {
             },
             child: Text(
               user != null ? 'Sair' : 'Entre ou cadastre-se >',
-              style: TextStyle(
-                  color: const Color.fromRGBO(25, 200, 224, 1),
+              style: const TextStyle(
+                  color: Color.fromRGBO(25, 200, 224, 1),
                   fontSize: 16,
                   fontWeight: FontWeight.bold),
             ),

@@ -210,13 +210,13 @@ class _TelaAdicionarUsuarioState extends State<TelaAdicionarUsuario> {
                               }
                             },
                             child: !loading
-                                ? CircularProgressIndicator(
+                                ? const CircularProgressIndicator(
                                     valueColor:
                                         AlwaysStoppedAnimation(Colors.white),
                                   )
-                                : Text(
+                                : const Text(
                                     "Criar uma conta",
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                         color: Colors.white, fontSize: 20.0),
                                   ),
                           ),
@@ -224,12 +224,12 @@ class _TelaAdicionarUsuarioState extends State<TelaAdicionarUsuario> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            const Text(
                               'Já tem uma conta?',
-                              style: const TextStyle(
+                              style: TextStyle(
                                   fontSize: 17.0,
                                   fontWeight: FontWeight.bold,
-                                  color: const Color.fromRGBO(25, 200, 224, 1)),
+                                  color: Color.fromRGBO(25, 200, 224, 1)),
                             ),
                             TextButton(
                               onPressed: () {},

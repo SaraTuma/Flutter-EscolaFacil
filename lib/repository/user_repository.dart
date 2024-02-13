@@ -113,7 +113,7 @@ class UserRepository {
       }
     } on PlatformException catch (e) {
       onFail(getErrorString(e.code));
-      return null;
+      
     }
   }
 
