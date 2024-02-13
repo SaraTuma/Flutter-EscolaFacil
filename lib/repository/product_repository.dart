@@ -1,9 +1,6 @@
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_escola_facil/helpers/app_errors.dart';
 
 import '../models/product.dart';
-import '../models/user_model.dart';
 
 class ProductRepository {
   ProductRepository() {

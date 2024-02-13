@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_escola_facil/authentication/signup.dart';
-import '../repository/user_repository.dart';
-import '../models/user_model.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

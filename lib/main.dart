@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_escola_facil/repository/product_repository.dart';
 import 'package:flutter_escola_facil/repository/user_repository.dart';
 import 'package:flutter_escola_facil/screens/signup_screen.dart';
 import 'package:flutter_escola_facil/screens/chart_screen.dart';
@@ -10,10 +9,8 @@ import 'package:flutter_escola_facil/screens/login_screen.dart';
 import 'package:flutter_escola_facil/screens/main_screen.dart';
 import 'package:flutter_escola_facil/screens/products/product_screen.dart';
 import 'package:flutter_escola_facil/screens/red_password_screen.dart';
-import 'package:flutter_escola_facil/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'authentication/login.dart';
 
 void main() {
   runApp(const MyApp());

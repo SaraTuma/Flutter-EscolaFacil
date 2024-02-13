@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_escola_facil/authentication/login.dart';
 
-import '../repository/user_repository.dart';
-import '../models/user_model.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
