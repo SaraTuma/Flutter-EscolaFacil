@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_escola_facil/common/custom_drawer/custom_drawer.dart';
-import 'package:flutter_escola_facil/models/product.dart';
+import 'package:flutter_escola_facil/models/product_model.dart';
 
 import 'componets/product_list_tile.dart';
 import 'componets/search_dialog.dart';

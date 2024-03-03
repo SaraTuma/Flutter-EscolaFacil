@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_escola_facil/models/product.dart';
+import 'package:flutter_escola_facil/models/product_model.dart';
 
 class ProductListTile extends StatelessWidget {
   const ProductListTile({super.key, required this.product});

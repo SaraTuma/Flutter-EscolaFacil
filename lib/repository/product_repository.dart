@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../models/product.dart';
+import '../models/product_model.dart';
 
 class ProductRepository {
   ProductRepository() {

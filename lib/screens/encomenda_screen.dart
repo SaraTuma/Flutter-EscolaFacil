@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../common/custom_drawer/custom_drawer.dart';
-import '../models/product.dart';
+import '../models/product_model.dart';
 
 class TelaEncomendas extends StatefulWidget {
   const TelaEncomendas({super.key});
